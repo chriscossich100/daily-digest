@@ -27,6 +27,8 @@ def add_recipients():
     #add the new recipient to the dictionary:
     recipient_data['recipients'].append(recipient.get())
 
+    if len(recipient_list.get()) > 0: 
+        send_email_button.config(state='enabled', style='')
 
 #callback function to remove specified recipient(s) from the list:
 #recipient_list is actually a list. Meaning we will need to call the list method to go through
@@ -49,6 +51,9 @@ def remove_recipients():
 
     #set the main recipient_list variable:
     recipient_list.set(updated_recipient_list)
+
+    if len(recipient_list.get()) <= 0: 
+        send_email_button.config(state='disabled', style='Submit.TButton')
     
 
 #callback for offically updating configurations:
@@ -85,6 +90,10 @@ except Exception as e:
 
 #assign the main widget:
 root = Tk()
+
+style = ttk.Style()
+
+style.configure('Submit.TButton', foreground='gray')
 
 #assign title to the tkinter gui application
 root.title('Daily Digest Sender')
@@ -153,7 +162,10 @@ control_frame.pack(pady=15, padx=15)
 #create a button widget to update settings:
 ttk.Button(control_frame, text='Update Settings', command=update_settings).grid(padx=5, pady=5, row=0, column=0)
 #create a button widget to send email:
-ttk.Button(control_frame, text='Send Email', command=send_email).grid(padx=5, pady=5, row=0, column=1)
+send_email_button = ttk.Button(control_frame, text='Send Email', command=send_email)
+send_email_button.grid(padx=5, pady=5, row=0, column=1)
 
+if len(recipient_list.get()) <= 0:
+    send_email_button.config(state='disabled', style='Submit.TButton')
 
 root.mainloop()

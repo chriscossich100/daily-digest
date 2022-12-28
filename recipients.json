@@ -1,12 +1,7 @@
 {
- "recipients": [
-  "chriscossich@aol.com",
-  "chriscossich@gmail.com",
-  "jcossich100@gmail.com",
-  "chriscossich@outlook.com"
- ],
+ "recipients": [],
  "sender": {
-  "username": "chriscossich@outlook.com",
-  "password": "Gugu9000!"
+  "username": "Username Goes Here",
+  "password": "Password Goes Here"
  }
 }

@@ -4,10 +4,8 @@ from urllib import request #the request module from the urllib package which all
 import json #this will parse the response
 import datetime #this module will format will save the timestamps for all the periods.
 import tweepy
-"""
-Retrieve a random quote from the specified CSV file.
-"""
-def get_random_quote(quotes_file='quotes.csv'):
+
+def get_random_quote():
     try:
         f = open('quotes.json')
         # returns JSON object as a dictionary
@@ -22,9 +20,6 @@ def get_random_quote(quotes_file='quotes.csv'):
     return randomQuote
 
  
-"""
-Retreive weather forcast based of geographical location.
-"""
 def get_weather_forecast(): #here we are going to use our own version of a get request. 38.901011, -77.015690
 
     #Remember when trying to receive or send information from the internet, it's always best to use a try block
@@ -61,20 +56,18 @@ def get_twitter_trends(woeid=23424977):
     #remember that if you're retrieving information from the internet, there could be some issues even if you didnt code anything wrong. 
     #that's why try catch blocks are around.
     try: # retrieve Twitter trends for specified location
-        api_key = 'twitter api key goes here' # replace with your own Twitter API key
-        api_secret_key = 'twitte api secret key goes here' # replace with your own Twitter API secret key
+        api_key = 'twitter api key goes here!' # replace with your own Twitter API key
+        api_secret_key = 'twitter secret key goes here' # replace with your own Twitter API secret key
         auth = tweepy.AppAuthHandler(api_key, api_secret_key)
         return tweepy.API(auth).get_place_trends(woeid)[0]['trends'] # NOTE: Tweepy 4.0.0 renamed the 'trends_place' method to 'get_place_trends'
 
     except Exception as e:
         print(e)
-"""
-Retrieve the summary extract for a random Wikipedia article.
-"""
+
 def get_wikipedia_article():
     
     #to get wikipedia random article we are going to use the requests package to make a get request.
-    #again, remember that if you're retrieving information from the internet, there culd be some issues even if hyou didnt code anything wrong.
+    #again, remember that if you're retrieving information from the internet, there could be some issues even if hyou didnt code anything wrong.
     #this is where the try catch block comes in handy:
     try:
         url = "https://en.wikipedia.org/api/rest_v1/page/random/summary" #url used in request.
@@ -94,9 +87,6 @@ if __name__ == '__main__':
 
     quote = get_random_quote()
     print(f' - Random quote is "{quote["quote"]}" - {quote["author"]}')
-
-    quote = get_random_quote(quotes_file = None)
-    print(f' - Default quote is "{quote["quote"]}" - {quote["author"]}')
 
     ##### test get_weather_forecast() #####
     print('\nTesting weather forecast retrieval...')

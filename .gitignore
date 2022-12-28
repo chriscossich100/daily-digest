@@ -1,0 +1,5 @@
+#ignore all text files:
+*.txt
+
+#ignore all html files
+*.html

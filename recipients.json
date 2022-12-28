@@ -1,12 +1,7 @@
 {
- "recipients": [
-  "chriscossich@aol.com",
-  "chriscossich@gmail.com",
-  "jcossich100@gmail.com",
-  "chriscossich@outlook.com"
- ],
+ "recipients": [],
  "sender": {
-  "username": "email goes here",
-  "password": "password goes here"
+  "username": "Username Goes Here",
+  "password": "Password Goes Here"
  }
 }

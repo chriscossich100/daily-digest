@@ -29,7 +29,7 @@ def get_weather_forecast(): #here we are going to use our own version of a get r
 
     #Remember when trying to receive or send information from the internet, it's always best to use a try block
     try:
-        apiKey = '48ef76dd06c684c6abd02d37d95a18b1'
+        apiKey = 'api key goes here'
         lat = 38.901011
         long = -77.015690
         url = f'http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={long}&appid={apiKey}&units=imperial'
@@ -61,8 +61,8 @@ def get_twitter_trends(woeid=23424977):
     #remember that if you're retrieving information from the internet, there could be some issues even if you didnt code anything wrong. 
     #that's why try catch blocks are around.
     try: # retrieve Twitter trends for specified location
-        api_key = '0wotJJpm0GnOjiSaxpBkRfiN7' # replace with your own Twitter API key
-        api_secret_key = 'HO5aabRoZSZIaGIm6NfNDf0OIhjoMELMswvmHFCox52nKW780o' # replace with your own Twitter API secret key
+        api_key = 'twitter api key goes here' # replace with your own Twitter API key
+        api_secret_key = 'twitte api secret key goes here' # replace with your own Twitter API secret key
         auth = tweepy.AppAuthHandler(api_key, api_secret_key)
         return tweepy.API(auth).get_place_trends(woeid)[0]['trends'] # NOTE: Tweepy 4.0.0 renamed the 'trends_place' method to 'get_place_trends'
 
